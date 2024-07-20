@@ -70,6 +70,7 @@ export const exampleOrganisms: Organism[] = [
     sourcePage: "https://en.wikipedia.org/wiki/Apple",
     imageSource: "https://en.wikipedia.org/wiki/Apple",
     classification: [
+      { level: "Domain", value: "Eukaryota" },
       { level: "Kingdom", value: "Plantae" },
       { level: "Clade", value: "Tracheophytes" },
       { level: "Clade", value: "Angiosperms" },
@@ -87,6 +88,7 @@ export const exampleOrganisms: Organism[] = [
     imageSource:
       "//upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Carnegiea_gigantea_in_Saguaro_National_Park_near_Tucson%2C_Arizona_during_November_%2858%29.jpg/220px-Carnegiea_gigantea_in_Saguaro_National_Park_near_Tucson%2C_Arizona_during_November_%2858%29.jpg",
     classification: [
+      { level: "Domain", value: "Eukaryota" },
       { level: "Kingdom", value: "Plantae" },
       { level: "Clade", value: "Tracheophytes" },
       { level: "Clade", value: "Angiosperms" },
@@ -209,6 +211,7 @@ export const exampleOrganisms: Organism[] = [
     imageSource:
       "//upload.wikimedia.org/wikipedia/commons/thumb/5/52/Trifolium_repens_-_white_clover_on_way_from_Govindghat_to_Gangria_at_Valley_of_Flowers_National_Park_-_during_LGFC_-_VOF_2019_%281%29.jpg/220px-Trifolium_repens_-_white_clover_on_way_from_Govindghat_to_Gangria_at_Valley_of_Flowers_National_Park_-_during_LGFC_-_VOF_2019_%281%29.jpg",
     classification: [
+      { level: "Domain", value: "Eukaryota" },
       { level: "Kingdom", value: "Plantae" },
       { level: "Clade", value: "Tracheophytes" },
       { level: "Clade", value: "Angiosperms" },
@@ -250,6 +253,24 @@ export const exampleOrganisms: Organism[] = [
       { level: "Family", value: "Octopodidae" },
       { level: "Genus", value: "Hapalochlaena" },
       { level: "Species", value: "H. lunulata" },
+    ],
+  },
+  {
+    name: "Ginkgo",
+    sourcePage: "https://en.wikipedia.org/wiki/Ginkgo_biloba",
+    imageSource:
+      "//upload.wikimedia.org/wikipedia/commons/thumb/e/e0/GINKGOBAUM-2.jpg/220px-GINKGOBAUM-2.jpg",
+    classification: [
+      { level: "Domain", value: "Eukaryota" },
+      { level: "Kingdom", value: "Plantae" },
+      { level: "Clade", value: "Tracheophytes" },
+      { level: "Clade", value: "Gymnospermae" },
+      { level: "Division", value: "Ginkgophyta" },
+      { level: "Class", value: "Ginkgoopsida" },
+      { level: "Order", value: "Ginkgoales" },
+      { level: "Family", value: "Ginkgoaceae" },
+      { level: "Genus", value: "Ginkgo" },
+      { level: "Species", value: "G. biloba" },
     ],
   },
 ];
