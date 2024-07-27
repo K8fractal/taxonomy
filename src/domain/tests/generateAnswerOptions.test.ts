@@ -3,6 +3,7 @@ import {
   generateAnswerOptions,
   generateRandomAnswer,
 } from "../generateAnswerOptions";
+import { rootClade } from "../../organisms/organism";
 
 const ginkgo = {
   name: "Ginkgo",
@@ -168,15 +169,12 @@ describe("answer sets", () => {
     expect(answerSet.filter((answer) => answer.best)).toStrictEqual([
       {
         best: true,
-        clade: {
-          level: "root",
-          value: "Biota",
-        },
+        clade: rootClade,
         matches: "both",
       },
     ]);
 
     // correct answer isn't neccessarily last
-    expect(answerSet[1].best).toBe(true);
+    expect(answerSet[3].best).toBe(false);
   });
 });

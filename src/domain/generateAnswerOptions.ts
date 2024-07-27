@@ -7,7 +7,7 @@ import {
 } from "./randomElement";
 import { sameClade, smallestSharedClade } from "./smallestSharedClade";
 
-type Answer = {
+export type Answer = {
   clade: Clade;
   matches: "neither" | "aOnly" | "bOnly" | "both";
   best?: boolean;
@@ -19,21 +19,27 @@ export function generateAnswerOptions(
   howMany: number
 ): Answer[] {
   const result: Answer[] = [];
-  for (let i = 0; i < howMany - 1; i++) {
-    result.push(generateRandomAnswer(a, b));
+  for (let i = 0; i < howMany; ) {
+    const newAnswer: Answer = generateRandomAnswer(a, b);
+    // avoid duplicates
+    if (
+      result.findIndex((answer) => sameClade(answer.clade, newAnswer.clade)) ===
+      -1
+    ) {
+      result.push(newAnswer);
+      i++;
+    }
   }
   let bestIndex = result.findIndex((answer) => answer.matches === "both");
   if (bestIndex < 0) {
-    // no matches, generate the best possible answer and insert at a random location
-    result.splice(randomIndex(howMany - 1), 0, {
+    // no matches, generate the best possible answer and replace at a random location
+    result.splice(randomIndex(howMany - 1), 1, {
       clade: smallestSharedClade(a, b),
       matches: "both",
       best: true,
     });
   } else {
     // valid answer exists
-    // get another answer
-    result.push(generateRandomAnswer(a, b));
     // figure out best answer index
     let smallestCladeIndexInClassification = -1;
     result.forEach((answer, index) => {
