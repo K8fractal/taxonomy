@@ -10,6 +10,8 @@ export type Organism = {
   classification: Clade[];
 };
 
+export const rootClade: Clade = { level: "root", value: "Biota" };
+
 export const exampleOrganisms: Organism[] = [
   {
     name: "Human",

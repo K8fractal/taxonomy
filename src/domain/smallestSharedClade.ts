@@ -1,11 +1,11 @@
-import { Clade, Organism } from "../organisms/organism";
+import { Clade, Organism, rootClade } from "../organisms/organism";
 
-const sameClade = (a: Clade, b: Clade): boolean => {
+export const sameClade = (a: Clade, b: Clade): boolean => {
   return a.level === b.level && a.value === b.value;
 };
 
 export const smallestSharedClade = (a: Organism, b: Organism): Clade => {
-  let sharedClade: Clade = { level: "root", value: "Biota" };
+  let sharedClade = rootClade;
 
   for (
     let ai = 0, bi = 0;
