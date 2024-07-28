@@ -1,5 +1,6 @@
 import { Organism } from "../organisms/organism";
 import { Answer, generateAnswerOptions } from "../domain/generateAnswerOptions";
+import { OrganismDisplay } from "./OrganismDisplay";
 type QuestionProps = {
   a: Organism;
   b: Organism;
@@ -16,11 +17,10 @@ export function Question(props: QuestionProps) {
 
   return (
     <div>
-      <p>
-        {a.name}
-        <span> </span>
-        {b.name}
-      </p>
+      <div className="organismDisplayContainer">
+        <OrganismDisplay organism={a} />
+        <OrganismDisplay organism={b} />
+      </div>
       <div>
         {answers.map((answer) => (
           <p>

@@ -66,3 +66,17 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.organismDisplay {
+  flex: 1;
+  margin: 20px;
+  img {
+    width: 100%;
+  }
+  border: #747bff 1px solid;
+}
+.organismDisplayContainer {
+  display: flex;
+  height: 40vh;
+  border: #535bf2 1px solid;
+}

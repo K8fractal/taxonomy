@@ -24,10 +24,10 @@ function App() {
           What is Taxonomy?
         </a>
       </p>
-      <div className="card">
-        <p>
+      <div>
+        <h3>
           What is the smallest classification that has both of these organisms?
-        </p>
+        </h3>
         <Question a={exampleOrganisms[ai]} b={exampleOrganisms[bi]} />
       </div>
       <button onClick={() => nextQuestion()}>New Question</button>

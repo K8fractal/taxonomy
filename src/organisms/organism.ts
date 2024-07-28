@@ -70,7 +70,8 @@ export const exampleOrganisms: Organism[] = [
   {
     name: "Apple",
     sourcePage: "https://en.wikipedia.org/wiki/Apple",
-    imageSource: "https://en.wikipedia.org/wiki/Apple",
+    imageSource:
+      "//upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Pink_lady_and_cross_section.jpg/220px-Pink_lady_and_cross_section.jpg",
     classification: [
       { level: "Domain", value: "Eukaryota" },
       { level: "Kingdom", value: "Plantae" },
