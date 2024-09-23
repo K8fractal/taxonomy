@@ -1,13 +1,32 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 // TODO: fix and remove warning (this is currently a stub file)
-import { CladeNode, OrganismNode } from "./treeTypes";
+import { randomElement, twoRandomElements } from "../randomElement";
+import { getDescendents } from "./catalog";
+import {
+  Catalog,
+  IndexedClade,
+  IndexedOrganism,
+  isIndexedClade,
+  isIndexedOrganism,
+} from "./treeTypes";
 
-export function chooseTwoOrganisms(
-  clade: CladeNode
-): [OrganismNode, OrganismNode] {
-  throw Error("not yet implemented");
+export function chooseTwoOrganismsFromClade(
+  clade: IndexedClade,
+  catalog: Catalog
+): [IndexedOrganism, IndexedOrganism] {
+  const possibleOrganisms = getDescendents(clade, catalog).filter(
+    isIndexedOrganism
+  );
+  if (possibleOrganisms.length < 2) {
+    throw new Error("only one descendent organism");
+  }
+
+  return twoRandomElements(possibleOrganisms);
 }
 
-export function randomClade(tree: CladeNode): CladeNode {
-  throw Error("not yet implemented");
+export function randomClade(catalog: Catalog): IndexedClade {
+  const possibleClades = catalog
+    .filter(isIndexedClade)
+    .filter((life) => life.isUnlocked);
+  return randomElement(possibleClades);
 }
