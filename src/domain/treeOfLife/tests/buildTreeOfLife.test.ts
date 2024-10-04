@@ -1,8 +1,8 @@
 import { describe, expect, test } from "vitest";
 import { buildTreeOfLife } from "../buildTreeOfLife";
-import { exampleOrganisms } from "../../../organisms/organism";
+import { exampleOrganisms, rootClade } from "../../../organisms/organism";
 import { mockUnlockedClades } from "../../../meta/mockUnlockedClades";
-import { buildCatalog, getDescendents } from "../catalog";
+import { buildCatalog, getAncesters, getDescendents } from "../catalog";
 
 const testTree = buildTreeOfLife(mockUnlockedClades, exampleOrganisms);
 const testCatalog = buildCatalog(testTree);
@@ -1326,5 +1326,32 @@ describe("get decendents", () => {
 
   test("descendents of clade with no siblings is calculated correctly", () => {
     expect(getDescendents(testCatalog[6], testCatalog).length).toEqual(8);
+  });
+});
+
+describe("get ancesters", () => {
+  const catAncesters = getAncesters(testCatalog[20], testCatalog);
+
+  test("length", () => {
+    expect(catAncesters.length).toBe(10);
+  });
+
+  test("last is root", () => {
+    expect(catAncesters[9].clade).toBe(rootClade);
+  });
+});
+
+describe("get ancesters up to Mammal", () => {
+  const fromHumanToMammal = getAncesters(testCatalog[12], testCatalog, 4);
+
+  test("length", () => {
+    expect(fromHumanToMammal.length).toBe(7);
+  });
+
+  test("last is Primate", () => {
+    expect(fromHumanToMammal[6].clade).toStrictEqual({
+      level: "Order",
+      value: "Primates",
+    });
   });
 });

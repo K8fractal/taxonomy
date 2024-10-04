@@ -98,3 +98,29 @@ const getEnd = (life: IndexedLife, catalog: Catalog): number | undefined => {
   }
   return getEnd(parent, catalog);
 };
+
+export const getAncesters = (
+  life: IndexedLife,
+  catalog: Catalog,
+  upToIndex = -1
+): Array<IndexedClade> => {
+  if (life.parentIndex === upToIndex) {
+    return [];
+  }
+  const parent = getParent(life, catalog);
+
+  return parent ? [parent, ...getAncesters(parent, catalog, upToIndex)] : [];
+};
+
+export const getSiblings = (
+  life: IndexedLife,
+  catalog: Catalog
+): Array<IndexedLife> => {
+  const parent = getParent(life, catalog);
+  if (!parent) {
+    return [];
+  }
+  return parent.childrenIndex
+    .filter((i) => i !== life.index)
+    .map((i) => catalog[i]);
+};

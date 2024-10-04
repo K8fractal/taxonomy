@@ -1,7 +1,7 @@
-import { Organism } from "../organisms/organism";
+import { OrganismDetails } from "../domain/treeOfLife/treeTypes";
 
 type OrganismDisplayProps = {
-  organism: Organism;
+  organism: OrganismDetails;
   includeLinks?: boolean;
 };
 
